@@ -7,4 +7,4 @@ Dependencies
 - install rspec via gem install rspec command 
 
 Running tests
-You can run ny test via rspec /path_to_file/test_name.rb
+- You can run ny test via rspec /path_to_file/test_name.rb
