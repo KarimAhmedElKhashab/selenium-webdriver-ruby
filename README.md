@@ -31,21 +31,32 @@ _To generate and view Allure report in HTML format from command line_
 
 ## What is Next?
 
-## Cross browser testing support
+## Page Object Model and OOP
+
+Inspired from https://slack.engineering/scaling-end-to-end-user-interface-tests/
+
+ - To abstract UI for better maintainability and scalability you can rely on Class Inheritance OOP concept by having Base parent classes and children classes extending them.
+ - Design your POM
+
+## Selenium Grid support for cross browser testing and parallel test execution scalability
+
+Try this https://www.selenium.dev/documentation/grid/getting_started/
+
+- To run your tests in parallel, against different browser types, browser versions, operating systems
+- To reduce the time needed to execute a test suite
+
+## CI support either Jenkins or github actions
+
+## Cross browser testing
+
+Try this http://elementalselenium.com/tips/26-cloud
+
+OR 
 
 Try this https://github.com/crossbrowsertesting/selenium-rspec
 
 ## Parallel test execution support
 
 Try this https://github.com/grosser/parallel_tests
-
-## Page Object Model and OOP
-
- - To abstract UI for better maintainability and scalability you can rely on Class Inheritance OOP concept by having Base parent classes and children classes extending them.
- - Design your POM
-
-## CI support either Jenkins or github actions
-
-## Selenium Grid support for scalability
 
 
