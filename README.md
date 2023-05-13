@@ -15,11 +15,11 @@ You can run any test via ```rspec /path_to_file/test_name.rb```
 
 https://github.com/allure-framework/allure-ruby/blob/master/allure-rspec/README.md
 
-_To run specs with Allure formatter_
+_To run specs with Allure formatter from command line_
 
     rspec /path/to/example_spec.rb --format AllureRspecFormatter
     
-_To generate Allure report in HTML format_
+_To generate Allure report in HTML format from command line_
 
     allure generate path/to/results
 
