@@ -19,9 +19,15 @@ _To run specs with Allure formatter from command line_
 
     rspec /path/to/example_spec.rb --format AllureRspecFormatter
     
-_To generate Allure report in HTML format from command line_
+_To generate and view Allure report in HTML format from command line_
 
     allure generate path/to/results
+    
+ Then
+ 
+    ```allure serve path/to/results```
+   
+   
 
 //TODO ITEMS
 
