@@ -33,4 +33,6 @@ _To generate Allure report in HTML format_
 
 ## Page Object Model
 
+## CI support either Jenkins or github actions
+
 
