@@ -29,9 +29,11 @@ _To generate and view Allure report in HTML format from command line_
    
    
 
-//TODO ITEMS
+## What is Next?
 
 ## Parallel test execution support
+
+Try this https://github.com/grosser/parallel_tests
 
 ## Selenium Grid support for scalability
 
