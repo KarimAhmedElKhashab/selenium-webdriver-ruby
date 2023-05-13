@@ -25,9 +25,11 @@ _To generate Allure report in HTML format_
 
 //TODO ITEMS
 
-## Parallel tests
+## Parallel test execution support
 
-## Selenium Grid
+## Selenium Grid support
+
+## Running on multiple browsers support
 
 ## Page Object Model
 
