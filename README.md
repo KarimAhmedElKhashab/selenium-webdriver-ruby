@@ -27,7 +27,7 @@ _To generate Allure report in HTML format_
 
 ## Parallel test execution support
 
-## Selenium Grid support
+## Selenium Grid support for scalability
 
 ## Cross browser testing support
 
