@@ -31,16 +31,21 @@ _To generate and view Allure report in HTML format from command line_
 
 ## What is Next?
 
+## Cross browser testing support
+
+Try this https://github.com/crossbrowsertesting/selenium-rspec
+
 ## Parallel test execution support
 
 Try this https://github.com/grosser/parallel_tests
 
-## Selenium Grid support for scalability
+## Page Object Model and OOP
 
-## Cross browser testing support
-
-## Page Object Model
+ - To abstract UI for better maintainability and scalability you can rely on Class Inheritance OOP concept by having Base parent classes and children classes extending them.
+ - Design your POM
 
 ## CI support either Jenkins or github actions
+
+## Selenium Grid support for scalability
 
 
