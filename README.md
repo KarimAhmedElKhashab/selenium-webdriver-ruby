@@ -29,7 +29,7 @@ _To generate Allure report in HTML format_
 
 ## Selenium Grid support
 
-## Running on multiple browsers support
+## Cross browser testing support
 
 ## Page Object Model
 
