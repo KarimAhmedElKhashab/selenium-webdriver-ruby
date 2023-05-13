@@ -11,15 +11,15 @@ A demo e2e test framework using selenium webdriver under ruby
 
 You can run any test via ```rspec /path_to_file/test_name.rb```
 
-## Option A - Allure Test Reporting:
+## Test Reporting via Allure:
 
 https://github.com/allure-framework/allure-ruby/blob/master/allure-rspec/README.md
 
-To run specs:
+_To run specs:_
 
     rspec /path/to/example_spec.rb --format AllureRspecFormatter
     
-To generate Allure report in HTML format
+_To generate Allure report in HTML format_
 
     allure generate path/to/results
 
