@@ -21,7 +21,7 @@ _To run specs with Allure formatter from command line_
     
 _To generate and view Allure report in HTML format from command line_
 
-    allure generate path/to/results
+    allure generate report/allure-results
     
  Then
  
