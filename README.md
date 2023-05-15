@@ -33,6 +33,8 @@ _To generate and view Allure report in HTML format from command line_
 
 ## Page Object Model and OOP
 
+Try this https://nareshnavinash.github.io/selenium-ruby-handcrafted-framework/
+
 Inspired from https://slack.engineering/scaling-end-to-end-user-interface-tests/
 
  - To abstract UI for better maintainability and scalability you can rely on Class Inheritance OOP concept by having Base parent classes and children classes extending them.
