@@ -25,7 +25,7 @@ _To generate and view Allure report in HTML format from command line_
     
  Then
  
-    allure serve path/to/results
+    allure serve report/allure-results
    
    
 
