@@ -21,24 +21,44 @@ _To run specs with Allure formatter from command line_
     
 _To generate and view Allure report in HTML format from command line_
 
-    allure generate path/to/results
+    allure generate report/allure-results
     
  Then
  
-    allure serve path/to/results
+    allure serve report/allure-results
    
    
 
-//TODO ITEMS
+## What is Next?
+
+## Page Object Model and OOP
+
+Try this https://nareshnavinash.github.io/selenium-ruby-handcrafted-framework/
+
+Inspired from https://slack.engineering/scaling-end-to-end-user-interface-tests/
+
+ - To abstract UI for better maintainability and scalability you can rely on Class Inheritance OOP concept by having Base parent classes and children classes extending them.
+ - Design your POM
+
+## Selenium Grid support for cross browser testing and parallel test execution scalability
+
+Try this https://www.selenium.dev/documentation/grid/getting_started/
+
+- To run your tests in parallel, against different browser types, browser versions, operating systems
+- To reduce the time needed to execute a test suite
+
+## CI support either Jenkins or github actions
+
+## Cross browser testing
+
+Try this http://elementalselenium.com/tips/26-cloud
+
+OR 
+
+Try this https://github.com/crossbrowsertesting/selenium-rspec
 
 ## Parallel test execution support
 
-## Selenium Grid support for scalability
-
-## Cross browser testing support
-
-## Page Object Model
-
-## CI support either Jenkins or github actions
+Try this https://github.com/grosser/parallel_tests
 
 
