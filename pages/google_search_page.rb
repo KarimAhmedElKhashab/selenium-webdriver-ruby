@@ -5,8 +5,8 @@ class GoogleSearchPage < CommonBase
   Search_bar = {name: "q"}
 
   def initialize
-    # This super is responsible for passing the driver object into the Base class
-    # and making all of its methods run smoothly.
+    # This super is responsible for letting page inherit Base class and making all of
+    # its methods available for use within the page logic.
     super
 
     # init log to console

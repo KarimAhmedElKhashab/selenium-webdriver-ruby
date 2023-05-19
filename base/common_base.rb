@@ -5,6 +5,7 @@ class CommonBase
     @log = Logger.new($stdout)
   end
 
+  # if needed to call visit method while in pages methods
   def visit(driver = $main_driver, url='/')
     driver.get(ENV['base_url'] + url)
     @log.info "User goes to #{ENV["base_url"] + url}"

@@ -2,11 +2,9 @@ require_relative '../base/common_base'
 
 class GoogleSearchResultsPage < CommonBase
 
-  attr_accessor :search_results, :search_stats
-
   def initialize
-    # This super is responsible for passing the driver object into the Base class
-    # and making all of its methods run smoothly.
+    # This super is responsible for letting page inherit Base class and making all of
+    # its methods available for use within the page logic.
     super
 
     # init log to console
@@ -19,15 +17,16 @@ class GoogleSearchResultsPage < CommonBase
 
   Search_results = {xpath: '//*[@id="rso"]/div'}
   Search_stats = {id: 'result-stats'}
+  Title = {}
+  Urls = {}
+  Short_descriptions = {}
 
   def search_results
-    @search_results = find_elements(Search_results)
-    @search_results
+    find_elements(Search_results)
   end
 
   def search_results_stats
-    @search_stats = find(Search_stats)
-    @search_stats
+    find(Search_stats)
   end
 
   # ====================================================================================================================
