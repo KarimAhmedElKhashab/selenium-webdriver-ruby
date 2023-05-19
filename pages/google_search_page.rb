@@ -17,7 +17,7 @@ class GoogleSearchPage < CommonBase
     clear(Search_bar)
     type(Search_bar, keyword)
     type(Search_bar, :return)
-    @log.info "User types #{keyword} in search bar and presses enter"
+    @log.info "User types \"#{keyword}\" in search bar and presses enter"
   end
 
   def get_banner_text

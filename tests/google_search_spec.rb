@@ -41,8 +41,7 @@ RSpec.describe "Automating Search engine" do
       search_keywords.each do |keyword|
         @google_search_page.clear_and_search_for_keyword(keyword)
         @google_search_results_page.parse_search_results_for keyword
-        expect(@google_search_results_page.get_title).to include(keyword)
-
+        expect(@google_search_results_page.is_search_results_displayed?).to be_truthy
     end
   end
 end

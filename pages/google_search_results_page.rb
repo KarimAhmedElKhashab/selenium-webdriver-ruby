@@ -2,7 +2,7 @@ require_relative '../base/common_base'
 
 class GoogleSearchResultsPage < CommonBase
 
-  attr_accessor :search_results
+  attr_accessor :search_results, :search_stats
 
   def initialize
     # This super is responsible for passing the driver object into the Base class
@@ -13,12 +13,43 @@ class GoogleSearchResultsPage < CommonBase
     @log = Logger.new($stdout)
   end
 
-  # Locators
-  # todo: revise this locator to get several attributes in search results as requested in task
+  # ====================================================================================================================
+  # PAGE LOCATORS
+  # ====================================================================================================================
+
+  Search_results = {xpath: '//*[@id="rso"]/div'}
+  Search_stats = {id: 'result-stats'}
+
   def search_results
-    @search_results = find_elements(xpath: '//*[@id="rso"]/div')
+    @search_results = find_elements(Search_results)
     @search_results
   end
+
+  def search_results_stats
+    @search_stats = find(Search_stats)
+    @search_stats
+  end
+
+  # ====================================================================================================================
+  # PAGE METHODS
+  # ====================================================================================================================
+
+  # To return whether the search listing page is displayed
+  def is_search_results_displayed?
+    flag = displayed?(Search_stats)
+
+    if flag
+      @log.info "Search results page loaded successfully"
+    else
+      @log.error "There is a problem with loading search results"
+    end
+    flag
+  end
+
+  # todo: revise this locator to get several attributes in search results as requested in task
+  # 1- get title list items which includes keyword and which not --> log to stdout
+  # 2- get urls list items which includes keyword and which not --> log to stdout
+  # 3- get short descriptions items which includes keyword and which not --> log to stdout
 
   def parse_search_results_for(keyword)
 
