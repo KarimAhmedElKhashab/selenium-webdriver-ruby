@@ -1,8 +1,6 @@
 require_relative '../base/common_base'
 
 class GoogleSearchPage < CommonBase
-  # Locators
-  Search_bar = {name: "q"}
 
   def initialize
     # This super is responsible for letting page inherit Base class and making all of
@@ -12,6 +10,16 @@ class GoogleSearchPage < CommonBase
     # init log to console
     @log = Logger.new($stdout)
   end
+
+  # ====================================================================================================================
+  # PAGE LOCATORS
+  # ====================================================================================================================
+
+  Search_bar = {name: "q"}
+
+  # ====================================================================================================================
+  # PAGE METHODS
+  # ====================================================================================================================
 
   def clear_and_search_for_keyword(keyword = '')
     clear(Search_bar)

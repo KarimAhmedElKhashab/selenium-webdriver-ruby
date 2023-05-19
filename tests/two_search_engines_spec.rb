@@ -44,7 +44,7 @@ RSpec.describe "Automating Search engine" do
       # assert results loaded
       expect(@google_search_results_page.is_search_results_displayed?).to be_truthy
 
-      # save results to global variable for comparison with 2nd engine results
+      # save results hash to global variable for comparison with 2nd engine results
       $google_results = @google_search_results_page.parse_search_results_for keyword
     end
   end
