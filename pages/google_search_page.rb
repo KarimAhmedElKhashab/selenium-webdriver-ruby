@@ -17,12 +17,6 @@ class GoogleSearchPage < CommonBase
     clear(Search_bar)
     type(Search_bar, keyword)
     type(Search_bar, :return)
-    @log.info "User types \"#{keyword}\" in search bar and presses enter"
-  end
-
-  def get_banner_text
-    wait = Selenium::WebDriver::Wait.new(timeout: 10)
-    wait.until { displayed? Banner }
-    text_of Banner
+    @log.info "Step # 2 - User types \"#{keyword}\" in search bar and presses enter"
   end
 end

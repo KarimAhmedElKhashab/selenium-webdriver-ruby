@@ -29,7 +29,7 @@ class Driver
     end
     @driver.manage.window.maximize
     @driver.manage.delete_all_cookies
-    @driver.manage.timeouts.page_load = 10
+    @driver.manage.timeouts.page_load = 30
     @driver.manage.timeouts.implicit_wait = 30
 
     $main_driver = self
@@ -40,7 +40,7 @@ class Driver
   def get(url)
     $main_driver = self
     @driver.get(url)
-    @log.info("#{$main_driver} browser is loaded with - #{url}")
+    @log.info("Step # 1 - User navigates to - #{url}")
   end
 
   # To quit the current browser driver

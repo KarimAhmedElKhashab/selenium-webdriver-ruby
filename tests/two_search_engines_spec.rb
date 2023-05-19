@@ -19,7 +19,7 @@ RSpec.describe "Automating Search engine" do
     @google_search_page = GoogleSearchPage.new
     @google_search_results_page = GoogleSearchResultsPage.new
 
-    # read configs
+    # read test data externally
     @test_data = YAML.load_file(Dir.pwd + '/test-data/keywords.yml')
   end
 
@@ -32,7 +32,6 @@ RSpec.describe "Automating Search engine" do
 
     # todo move navigation code to Driver class
     @driver.get(ENV['base_url'])
-    puts "User goes to #{ENV["base_url"]}"
 
     # get search keywords from external file
     search_keywords = @test_data['search_keyword'].split(",")
@@ -40,8 +39,8 @@ RSpec.describe "Automating Search engine" do
       # iterate on all keywords to run the test with different keywords
       search_keywords.each do |keyword|
         @google_search_page.clear_and_search_for_keyword(keyword)
-        @google_search_results_page.parse_search_results_for keyword
         expect(@google_search_results_page.is_search_results_displayed?).to be_truthy
+        $google_results = @google_search_results_page.parse_search_results_for keyword
     end
   end
 end
