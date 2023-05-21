@@ -61,7 +61,7 @@ class PageHelpers < Element
 
     final_hash.each do |key, value|
       value.each do |k,v|
-        if v and v.downcase.include? keyword
+        if v and v.downcase.include? keyword.downcase
         then @log.info "Found \"#{keyword}\" in #{k}: \"#{v}\""
         else @log.warn "Could not find \"#{keyword}\" in #{k}: \"#{v}\"" end
       end
