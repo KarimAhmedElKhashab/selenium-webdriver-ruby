@@ -26,14 +26,15 @@ class PageHelpers < Element
     @log.info "#########################################Similar URLs#########################################\n"
 
     urls.each do |url|
-      # TODO: send urls only to stdout
+      # TODO: log urls only to stdout
       puts url
     end
 
     @log.info "#########################################Similar Short Descriptions#########################################\n"
 
     short_descriptions.each do |desc|
-      puts desc
+      # TODO: log urls only to stdout
+    puts desc
     end
 
   end
