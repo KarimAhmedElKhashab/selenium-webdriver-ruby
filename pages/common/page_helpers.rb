@@ -10,7 +10,7 @@ class PageHelpers < Element
   end
 
   # To find the most popular items (i.e. the ones which were found in both search engines)
-  # it takes two hashes and filters out the similar ones
+  # it takes two arrays and filters out the similar ones
   def compare_two_engines_results(first, second)
     # if value of first matches value of second
     @log.info "Step # 4 - Comparing results from two engines...\n"
@@ -20,23 +20,29 @@ class PageHelpers < Element
     puts second
 
     # compare 2 arrays and return similar urls and short descriptions
-    urls = first.inject([]) { |memo, hash| memo << hash if second.any? { |hash2| hash[:url] == hash2[:url] }; memo }
-    short_descriptions = first.inject([]) { |memo, hash| memo << hash if second.any? { |hash2| hash[:description] == hash2[:description] }; memo }
+    similar_urls = []
+    similar_desc = []
 
-    @log.info "#########################################Similar URLs#########################################\n"
+    first.each do |key, obj|
+      first_url = obj[:url]
+      first_desc = obj[:description]
 
-    urls.each do |url|
-      # TODO: log urls only to stdout
-      puts url
+      second.each do |key2, obj2|
+        second_url = obj2[:url]
+        second_desc = obj2[:description]
+
+        similar_urls.push(first_url) if first_url == second_url
+        similar_desc.push(first_desc) if first_desc == second_desc
+      end
     end
 
-    @log.info "#########################################Similar Short Descriptions#########################################\n"
+    similar_urls.uniq!
+    similar_desc.uniq!
 
-    short_descriptions.each do |desc|
-      # TODO: log urls only to stdout
-    puts desc
-    end
-
+    @log.info "\n######################################### Similar/Popular URLs between two search engines #########################################\n"
+    if similar_urls.size > 0 then @log.info similar_urls else @log.info "No similar URLs found!" end
+    @log.info "\n######################################### Similar/Popular Short Descriptions between two search engines #########################################\n"
+    if similar_desc.size > 0 then @log.info similar_desc else @log.info "No similar Short Descriptions found!" end
   end
 
   # To parse the first 10 results logging to stdout which attributes contains the provided keyword and which not
@@ -59,6 +65,7 @@ class PageHelpers < Element
       final_hash[i] = result_hash
     end
 
+    # iterate to display which attributes contains the search keyword and which not
     final_hash.each do |key, value|
       value.each do |k,v|
         if v and v.downcase.include? keyword.downcase

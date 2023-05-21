@@ -52,7 +52,7 @@ RSpec.describe "Automating Search engine" do
       expect(@google_search_results_page.is_search_results_displayed?).to be_truthy
 
       # save results hash to global variable for comparison with Upwork results
-      $google_results.push @google_search_results_page.parse_search_results_for keyword
+      $google_results =  @google_search_results_page.parse_search_results_for keyword
     end
   end
 
@@ -73,7 +73,7 @@ RSpec.describe "Automating Search engine" do
       expect(@bing_search_results_page.is_search_results_displayed?).to be_truthy
 
       # save results hash to global variable for comparison with Google results
-      $bing_results.push @bing_search_results_page.parse_search_results_for keyword
+      $bing_results = @bing_search_results_page.parse_search_results_for keyword
 
       @bing_search_results_page.compare_two_engines_results($google_results, $bing_results)
     end
