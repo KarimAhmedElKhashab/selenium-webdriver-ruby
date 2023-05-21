@@ -27,7 +27,9 @@ class Driver
       @driver = Selenium::WebDriver.for :chrome
 
     end
+    @log.info "Maximizing browser..."
     @driver.manage.window.maximize
+    @log.info "Browser cookies DELETED..."
     @driver.manage.delete_all_cookies
     @driver.manage.timeouts.page_load = 10
     @driver.manage.timeouts.implicit_wait = 10

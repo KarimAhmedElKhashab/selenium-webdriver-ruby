@@ -45,14 +45,14 @@ class PageHelpers < Element
     @log.info "Step # 3 - Parsing first few search results..."
 
     final_hash = {}
+    # check optimal length to iterate on
+    length = if urls.size < short_descriptions.size then urls.size else short_descriptions.size end
 
-    # parse results attributes (title, url, short description) 10 times for the first 10 results
-    1.upto(5) do |i|
+    # parse results attributes (url, short description)
+    1.upto(length - 1) do |i|
       url_text_value = if urls[i].displayed? then urls[i].text else nil end
-      # title_text_value = if titles[i].displayed? and titles[i].text.downcase.include? keyword.downcase then titles[i].text else nil end
       desc_text_value = if short_descriptions[i].displayed? then short_descriptions[i].text else nil end
       result_hash = {
-          # "title": title_text_value,
           "url": url_text_value,
           "description": desc_text_value,
       }
