@@ -1,6 +1,6 @@
 require_relative '../base/element'
 
-class GoogleSearchPage < Element
+class BingSearchPage < Element
 
   def initialize
     # This super is responsible for letting page inherit Base class and making all of
@@ -15,7 +15,7 @@ class GoogleSearchPage < Element
   # PAGE LOCATORS
   # ====================================================================================================================
 
-  Search_bar = {name: "q"}
+  Search_bar = { id: 'sb_form_q' }
 
   # ====================================================================================================================
   # PAGE METHODS

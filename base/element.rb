@@ -1,4 +1,4 @@
-class CommonBase
+class Element
 
   def initialize
     # init log to console
@@ -51,8 +51,17 @@ class CommonBase
     find(locator).text
   end
 
+  # To get tab title
   def get_title(driver = $main_driver)
     driver.title
   end
 
+  # To manually bypass to CAPTCHA/re-CAPTCHA to avoid Selenium::WebDriver::Error::StaleElementReferenceError
+  # in case of running on FF
+  def bypass_captcha_manually_for_firefox
+    if ENV['browser'] == 'ff' || ENV['browser'] == 'firefox'
+      sleep 0.5
+      puts "CAPTCHA IS HERE!!!"
+    end
+  end
 end

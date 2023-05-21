@@ -29,8 +29,8 @@ class Driver
     end
     @driver.manage.window.maximize
     @driver.manage.delete_all_cookies
-    @driver.manage.timeouts.page_load = 30
-    @driver.manage.timeouts.implicit_wait = 30
+    @driver.manage.timeouts.page_load = 10
+    @driver.manage.timeouts.implicit_wait = 10
 
     $main_driver = self
     return self
@@ -52,7 +52,7 @@ class Driver
   # To find element in the current browser driver
   def find_element(locator)
     $main_driver = self
-    wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+    wait = Selenium::WebDriver::Wait.new(:timeout => 60)
     element = wait.until { @driver.find_element(locator) }
     wait.until { element.displayed? }
     wait.until { element.enabled? }

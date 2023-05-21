@@ -1,7 +1,7 @@
 require_relative '../base/element'
 require_relative '../pages/common/page_helpers'
 
-class GoogleSearchResultsPage < PageHelpers
+class BingSearchResultsPage < PageHelpers
 
   def initialize
     # This super is responsible for letting page inherit Base class and making all of
@@ -16,11 +16,11 @@ class GoogleSearchResultsPage < PageHelpers
   # PAGE LOCATORS
   # ====================================================================================================================
 
-  Search_results = {xpath: '//*[@id="rso"]/div'}
-  Search_stats = {id: 'result-stats'}
-  Titles = { xpath: "//*[@id=\"rso\"]//a//cite"}
-  Urls = { xpath: "//h3" }
-  Short_descriptions = { css: "div[data-snf=\"nke7rc\"]"}
+  Search_results = {xpath: '//*[@id="b_results"]/li'}
+  Search_stats = {id: 'b_tween'}
+  Titles = { class: "tptxt"}
+  Urls = { xpath: "//*[@id=\"b_results\"]/li//h2/a" }
+  Short_descriptions = { tag_name: "p"}
 
   def search_results
     bypass_captcha_manually_for_firefox
@@ -50,6 +50,15 @@ class GoogleSearchResultsPage < PageHelpers
   # PAGE METHODS
   # ====================================================================================================================
 
+  # To manually bypass to CAPTCHA/re-CAPTCHA to avoid Selenium::WebDriver::Error::StaleElementReferenceError
+  # in case of running on FF
+  def bypass_captcha_manually_for_firefox
+    if ENV['browser'] == 'ff' || ENV['browser'] == 'firefox'
+      sleep 0.5
+      puts "CAPTCHA IS HERE!!!"
+    end
+  end
+
   # To return whether the search listing page is displayed
   def is_search_results_displayed?
     flag = displayed?(Search_stats) || displayed?(Search_results) || displayed?(Titles) || displayed?(Urls) || displayed?(Short_descriptions)
@@ -61,4 +70,5 @@ class GoogleSearchResultsPage < PageHelpers
     end
     flag
   end
+
 end
