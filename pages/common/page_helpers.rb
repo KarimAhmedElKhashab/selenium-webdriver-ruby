@@ -9,16 +9,9 @@ class PageHelpers < Element
     @log = Logger.new($stdout)
   end
 
-  # To find the most popular items (i.e. the ones which were found in both search engines)
-  # it takes two arrays and filters out the similar ones
+  # To find the most popular items (i.e. the urls and short descriptions which were found in both search engines)
+  # it takes two arrays and filters out the similar items on both
   def compare_two_engines_results(first, second)
-    # if value of first matches value of second
-    @log.info "Step # 4 - Comparing results from two engines...\n"
-    @log.info "#########################################First engine results#########################################\n"
-    puts first
-    @log.info "#########################################Second engine results#########################################\n"
-    puts second
-
     # compare 2 arrays and return similar urls and short descriptions
     similar_urls = []
     similar_desc = []
@@ -31,8 +24,8 @@ class PageHelpers < Element
         second_url = obj2[:url]
         second_desc = obj2[:description]
 
-        similar_urls.push(first_url) if first_url == second_url
-        similar_desc.push(first_desc) if first_desc == second_desc
+        similar_urls.push(first_url) if first_url == second_url and first_url != nil
+        similar_desc.push(first_desc) if first_desc == second_desc and second_url != nil
       end
     end
 
@@ -41,6 +34,7 @@ class PageHelpers < Element
 
     @log.info "\n######################################### Similar/Popular URLs between two search engines #########################################\n"
     if similar_urls.size > 0 then @log.info similar_urls else @log.info "No similar URLs found!" end
+    
     @log.info "\n######################################### Similar/Popular Short Descriptions between two search engines #########################################\n"
     if similar_desc.size > 0 then @log.info similar_desc else @log.info "No similar Short Descriptions found!" end
   end
