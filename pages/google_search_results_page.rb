@@ -1,3 +1,5 @@
+# A separate page describing google search results page
+
 require_relative '../base/element'
 require_relative '../pages/common/page_helpers'
 
@@ -55,9 +57,9 @@ class GoogleSearchResultsPage < PageHelpers
     flag = displayed?(Search_stats) || displayed?(Search_results) || displayed?(Titles) || displayed?(Urls) || displayed?(Short_descriptions)
 
     if flag
-      @log.info "Search results page is loaded successfully"
+      @log.info "\e[32mSearch results page is loaded successfully\e[0m"
     else
-      @log.error "There is a problem with loading search results"
+      @log.error "\e[31There is a problem with loading search results\e[0m"
     end
     flag
   end

@@ -1,4 +1,5 @@
-# This file holds the driver methods that are going to be used across this framework
+# This file holds a central place for the driver configurations methods that are going to be used across this framework
+# To be refined to read all its config externally from file or env variables
 
 require 'selenium-webdriver'
 
@@ -42,12 +43,12 @@ class Driver
   def get(url)
     $main_driver = self
     @driver.get(url)
-    @log.info("Step # 1 - User navigates to - #{url}")
+    @log.info("\e[30mStep # 1 - User navigates to - #{url}\e[0m")
   end
 
   # To quit the current browser driver
   def quit
-    @log.info("Quiting the browser - #{$main_driver}")
+    @log.info("\e[30mQuiting the browser - #{$main_driver}\e[0m")
     @driver.quit
   end
 

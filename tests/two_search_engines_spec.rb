@@ -18,7 +18,7 @@ RSpec.describe "Automating parsing and comparing results from two Search engines
     @driver = Driver.new
     @driver.setup(ENV['browser'])
 
-    #init pages
+    #init all pages used in tests here
     @common_page_helper = PageHelpers.new
     @google_search_page = GoogleSearchPage.new
     @bing_search_page = BingSearchPage.new

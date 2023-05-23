@@ -1,3 +1,5 @@
+# A separate page describing google search landing page
+
 require_relative '../base/element'
 
 class GoogleSearchPage < Element
@@ -25,6 +27,6 @@ class GoogleSearchPage < Element
     clear(Search_bar)
     type(Search_bar, keyword)
     type(Search_bar, :return)
-    @log.info "Step # 2 - User types \"#{keyword}\" in search bar and presses enter"
+    @log.info "\e[32mStep # 2 - User types \"#{keyword}\" in search bar and presses enter\e[0m"
   end
 end

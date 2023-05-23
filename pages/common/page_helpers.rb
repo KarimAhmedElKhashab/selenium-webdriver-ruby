@@ -1,4 +1,5 @@
-# commonly used methods across pages are centralized here
+# commonly used methods across pages are centralized here for a higher level of abstraction and reuse to reduce
+# maintenance in pages
 
 require_relative '../../base/element'
 
@@ -13,7 +14,7 @@ class PageHelpers < Element
   # it takes two arrays and filters out the similar items on both
   def compare_two_engines_results(first, second)
     # compare 2 arrays and return similar urls and short descriptions
-    @log.info "Step # 4 - Compares results from the 2 search engines and logs similar results to stdout...\n"
+    @log.info "\e[30mStep # 4 - Compares results from the 2 search engines and logs similar results to stdout...\e[0m\n"
 
     output = []
 
@@ -38,9 +39,9 @@ class PageHelpers < Element
       output.push({similar_urls: similar_urls, similar_desc: similar_desc})
     end
 
-    @log.info "\n######################################### Similar/Popular URLs and Short Descriptions between two search engines #########################################\n"
+    @log.info "\n\e[30m######################################### Similar/Popular URLs and Short Descriptions between two search engines #########################################\e[0m\n"
     output.each_with_index do |output, i|
-      @log.info "#{i+1}-th keyword similarities found: #{output}"
+      @log.info "\e[30m#{i+1}th keyword similarities found: #{output}\e[0m"
     end
 
   end
@@ -48,7 +49,7 @@ class PageHelpers < Element
   # To parse the first 10 results logging to stdout which attributes contains the provided keyword and which not
   # and return a hash of hashes for comparison
   def parse_search_results_for(keyword)
-    @log.info "Step # 3 - Parsing first few search results..."
+    @log.info "\e[30mStep # 3 - Parsing first few search results...\e[0m"
 
     final_hash = {}
     # check optimal length to iterate on
@@ -68,15 +69,24 @@ class PageHelpers < Element
     end
 
     # iterate to display which attributes contains the search keyword and which not
-    @log.info "Displaying which attributes contains \"#{keyword}\" and which not...\n"
+    found = {}
+    not_found = {}
+    @log.info "\e[30mDisplaying which attributes contains \"#{keyword}\" and which not...\e[0m\n"
     final_hash.each do |key, value|
       value.each do |k,v|
         if v and v.downcase.include? keyword.downcase
-        then @log.info "Found \"#{keyword}\" in #{k}: \"#{v}\""
-        else @log.warn "Could not find \"#{keyword}\" in #{k}: \"#{v}\"" end
+          found[k] = [] unless found[k]
+          found[k].push(v)
+        else
+          not_found[k] = [] unless not_found[k]
+          not_found[k].push(v)
+        end
       end
     end
+    @log.info "\e[32mFound \"#{keyword}\" in the following URLs/Short Descriptions...\e[0m\n"
+    puts found
+    @log.info "\e[31m\"#{keyword}\" Not found in the following URLs/Short Descriptions...\e[0m\n"
+    puts not_found
     return final_hash
   end
-
 end

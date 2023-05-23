@@ -1,3 +1,4 @@
+# A separate page describing bing search landing page
 require_relative '../base/element'
 
 class BingSearchPage < Element
@@ -21,10 +22,11 @@ class BingSearchPage < Element
   # PAGE METHODS
   # ====================================================================================================================
 
+  # To type in search bar
   def clear_and_search_for_keyword(keyword = '')
     clear(Search_bar)
     type(Search_bar, keyword)
     type(Search_bar, :return)
-    @log.info "Step # 2 - User types \"#{keyword}\" in search bar and presses enter"
+    @log.info "\e[30mStep # 2 - User types \"#{keyword}\" in search bar and presses enter\e[0m"
   end
 end

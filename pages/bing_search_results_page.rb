@@ -1,3 +1,5 @@
+# A separate page describing bing search results page
+
 require_relative '../base/element'
 require_relative '../pages/common/page_helpers'
 
@@ -50,23 +52,14 @@ class BingSearchResultsPage < PageHelpers
   # PAGE METHODS
   # ====================================================================================================================
 
-  # To manually bypass to CAPTCHA/re-CAPTCHA to avoid Selenium::WebDriver::Error::StaleElementReferenceError
-  # in case of running on FF
-  def bypass_captcha_manually_for_firefox
-    if ENV['browser'] == 'ff' || ENV['browser'] == 'firefox'
-      sleep 0.5
-      puts "CAPTCHA IS HERE!!!"
-    end
-  end
-
-  # To return whether the search listing page is displayed
+  # To return whether the search results page is displayed with the needed elements
   def is_search_results_displayed?
     flag = displayed?(Search_stats) || displayed?(Search_results) || displayed?(Titles) || displayed?(Urls) || displayed?(Short_descriptions)
 
     if flag
-      @log.info "Search results page is loaded successfully"
+      @log.info "\e[32mSearch results page is loaded successfully\e[0m"
     else
-      @log.error "There is a problem with loading search results"
+      @log.error "\e[31mThere is a problem with loading search results\e[0m"
     end
     flag
   end

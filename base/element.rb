@@ -1,3 +1,5 @@
+# A wrapper class for all basic actions performed on a web element to be used across page objects
+
 class Element
 
   def initialize
@@ -61,7 +63,6 @@ class Element
   def bypass_captcha_manually_for_firefox
     if ENV['browser'] == 'ff' || ENV['browser'] == 'firefox'
       sleep 0.5
-      puts "CAPTCHA IS HERE!!!"
     end
   end
 end
