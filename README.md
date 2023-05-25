@@ -5,7 +5,6 @@ A demo e2e test framework using selenium webdriver under ruby
 
 - install rvm (i.e. in my case i use 2.5.7)
 - install latest ruby selenium webdriver https://rubygems.org/gems/selenium-webdriver/versions/4.9.0
-- install chromedriver-helper https://rubygems.org/gems/chromedriver-helper
 - install rspec --> ```gem install rspec```
 
 ## Running tests
