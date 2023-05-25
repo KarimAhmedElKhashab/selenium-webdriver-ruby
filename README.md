@@ -38,5 +38,11 @@ Inspired from https://slack.engineering/scaling-end-to-end-user-interface-tests/
  - Common page helper class that contains common methods that's used across other pages
  - Separate pages to encapsulate each page logic into it's own class/methods
 
+## What is next?
+
+- Separate locators from page objects for better structure, readability and maintainability
+- Break down base web element class into sub types like button, link, input...etc. instead of general WebElement. It isn't so comfortable to work with so general web element API. You have a possibility to type text (send keys) to button or to link.
+- Leverage driver class to use desired capabilities and red config externally
+
 
 
